@@ -37,10 +37,13 @@ This function takes no parameters. It returns all currently active repair issues
 
 ## Understanding repair issues
 
-Repair issues are created by {% term integrations %} when they detect a problem that requires user attention. Each issue contains information such as:
+Repair issues are created by {% term integrations %} when they detect a problem that requires user attention. Each issue contains the  following information:
 
+- `created` - Timestamp when the issue was created
+- `dismissed_version` - The version in which issue was dismissed or `None`
 - `domain` - The integration that created the issue
-- `issue_id` - A unique identifier for this specific issue
+- `is_persistent` - True if the issue should persists across restarts of Home Assistant
+- `issue_id` - An identifier for the issue, unique within domain
 - `severity` - How critical the issue is (`error`, `warning`, or `other`)
 - `translation_key` - A key used to look up the translated issue description
 
